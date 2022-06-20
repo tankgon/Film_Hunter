@@ -3,9 +3,9 @@ import axios from "axios";
 export default function axiosMethod(endpoint, method , body) {
 	return axios({
 		method,
-		url: `${process.env.REACT_APP_API_URL}`,
+		// url: `https://ophim1.com`,
 		data: body
 	}).catch(err => {
-		console.log(err);
+		alert(err);
 	});
 }

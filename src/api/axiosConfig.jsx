@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL:`https://ophim1.com/`,
-    timeout: 500,
+    // baseURL:`https://ophim1.com`,
+    // timeout: 1000,
 });
-// Config nhw nay, import vao thoi, có dùng accessToken thì check trong đây lun
+
 instance.interceptors.request.use(function (config) {
     // Do something before request is sent
     return config;
