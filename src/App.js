@@ -7,6 +7,7 @@ import './assets/style.css'
 //component
 import Layout from './main/layout'
 import Home from './layout/Home'
+import Page from './layout/Page'
 //frameword
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -15,7 +16,9 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout/>}>
-        <Route path='' element={<Home/>}/>
+        <Route path='' element={<Home/>}>
+          <Route path='/:id'  element={<Page/>}/>
+        </Route>
       </Route>
     </Routes>
   );

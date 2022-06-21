@@ -241,12 +241,12 @@ h1#logo a {
 }
 .movie-image {
 	float:left;
-	height:150px;
+	height:120px;
 	position:relative;
 }
 .movie-image img {
-	width:120px;
-	height:150px;
+	width:100px;
+	height:120px;
 }
 .movie-image a {
 	float:left;
@@ -389,3 +389,41 @@ h1#logo a {
 #footer .rf {
 	float:right;
 }
+
+
+
+
+.pagination {
+	display: inline-block;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 20px 0px;
+  }
+  
+  .pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border: 1px solid #413e3e;
+	background-color: #ddd;
+  }
+  
+  .pagination a.active {
+	background-color: #f2a223;
+	color: white;
+	border: 1px solid #f2a223;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #f2a223;}
+  
+  .pagination a:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+  }
+  
+  .pagination a:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+  }
