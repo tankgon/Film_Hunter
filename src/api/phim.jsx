@@ -1,12 +1,16 @@
 import axios from "./axiosConfig";
 
 const getPhim = () => {
+    return axios.get(`/danh-sach/phim-moi-cap-nhat?page=2`)
+}
+const getPagePhim = (id) => {
     return axios.get(`/danh-sach/phim-moi-cap-nhat?page=${id}`)
 }
-const getDetailPhim = () => {
-    return axios.get(`/phim/`)
+const getDetailPhim = (id) => {
+    return axios.get(`/phim/${id}`)
 }
 export default {
     getPhim,
+    getPagePhim,
     getDetailPhim,
 }
