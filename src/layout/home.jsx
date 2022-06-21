@@ -1,9 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 import getAPI from '../api/phim'
+import getAPIDetail from '../api/phim'
 
 function Home() {
   const [listrender, setlistrender] = useState([]);
+  const [listrenderDetail, setListrenderDetail] = useState([]);
 
   useEffect(() => {
     getPhim();
@@ -12,82 +14,55 @@ function Home() {
   const getPhim = async () => {
     try {
       const a = await getAPI.getPhim();
-      setlistrender(a.data);
+      setlistrender(a.data.items);
+      const b = await getAPIDetail.getDetailPhim();
+      setListrenderDetail(b.data);
     }catch (err){
       alert (err)
     }
   };
-  console.log(listrender);
+  console.log(listrenderDetail);
 
   const renderRestaurant = () => {
     if (listrender) {
-      // return listrender.map((item, index) => {
-  //       return (
-  //         <div 
-  //         key={index}
-  //         className="box">
-  //           <div className="head">
-  //             <h2>{item?.pagination?.totalPages}</h2>
-  //             <p className="text-right"><a href="#">See all</a></p>
-  //           </div>
-  //           <div className="movie">
-  //             <div className="movie-image"> <span className="play"><span className="name">X-MAN</span></span> <a href="#"><img src="css/images/movie1.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="movie">
-  //             <div className="movie-image"> <span className="play"><span className="name">SPIDER MAN 2</span></span> <a href="#"><img src="css/images/movie2.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="movie">
-  //             <div className="movie-image"> <span className="play"><span className="name">SPIDER MAN 3</span></span> <a href="#"><img src="css/images/movie3.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="movie">
-  //             <div className="movie-image"> <span className="play"><span className="name">VALKYRIE</span></span> <a href="#"><img src="css/images/movie4.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="movie">
-  //             <div className="movie-image"> <span className="play"><span className="name">GLADIATOR</span></span> <a href="#"><img src="css/images/movie5.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="movie last">
-  //             <div className="movie-image"> <span className="play"><span className="name">ICE AGE</span></span> <a href="#"><img src="css/images/movie6.jpg" alt="" /></a> </div>
-  //             <div className="rating">
-  //               <p>RATING</p>
-  //               <div className="stars">
-  //                 <div className="stars-in"> </div>
-  //               </div>
-  //               <span className="comments">12</span> </div>
-  //           </div>
-  //           <div className="cl">&nbsp;</div>
-  //         </div>
-  //       );
-      // });
+      return listrender.map((item, index) => {
+        return (
+          <div 
+          key={index}
+          className="box">
+            <div className="head">
+              <div className="movie">
+                <div className="movie-image"> 
+                  <span className="play">
+                    <span className="name">{item?.name}</span>
+                  </span> 
+                  <a href="#"><img src="css/images/movie1.jpg" alt="" /></a> 
+                </div>
+              </div>
+
+              <div className='flex'> 
+                <div>
+                  <div className='Item_name'>{item?.name}</div>
+                  <div>({item?.origin_name})</div> 
+                </div>
+                <p className="text-right"><a href="#">See all</a></p>
+              </div>
+              
+              <div className="rating">
+                  <p>RATING</p>
+                  <div className="stars">
+                    <div className="stars-in"> </div>
+                  </div>
+                  <span className="comments">12</span> 
+              </div>
+              
+              
+            </div>
+            
+            <div className="cl">&nbsp;</div>
+          </div>
+        );
+      });
     }
   };
 
