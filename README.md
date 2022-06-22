@@ -1,46 +1,24 @@
-# Getting Started with Create React App and Redux
+// Phim mới cập nhật
+GET: https://ophim1.com/danh-sach/phim-moi-cap-nhat?page=${page}
+Ví dụ: GEThttps://ophim1.com/danh-sach/phim-moi-cap-nhat?page=1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+//Thông tin Phim & Danh sách tập phim
+GET: https://ophim1.com/phim/${slug}
+Ví dụ: https://ophim.tv/phim/ngoi-truong-xac-songGEThttps://ophim1.com/phim/ngoi-truong-xac-song
 
-## Available Scripts
+//Giới Thiệu
+_Dữ liệu phim miễn phí vĩnh viễn. Cập nhật nhanh, chất lượng cao, ổn định và lâu dài. Tốc độ phát cực nhanh với đường truyền băng thông cao, đảm bảo đáp ứng được lượng xem phim trực tuyến lớn. Đồng thời giúp nhà phát triển website phim giảm thiểu chi phí của các dịch vụ lưu trữ và stream.
 
-In the project directory, you can run:
+//Khiếu nại bản quyền
+_Tất cả nội dung của trang web này được thu thập từ các trang web video chính thống trên Internet, và không cung cấp phát trực tuyến chính hãng. Nếu quyền lợi của bạn bị vi phạm, vui lòng thông báo cho chúng tôi, chúng tôi sẽ xóa nội dung vi phạm kịp thời, cảm ơn sự hợp tác của bạn!
 
-### `npm start`
+// THÔNG TIN LIÊN HỆ:
+Điện thoại: 033809****
+Email: nguyenphucthanh****@gmail.com
+Github: https://github.com/tankgon
+FaceBook: https://www.facebook.com/phucthanh.thanh.509/
+Instagram: https://www.instagram.com/npt25_4/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+//Admin API 
+Group Telegram: https://t.me/+QMfjBOtNpkZmNTc1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
