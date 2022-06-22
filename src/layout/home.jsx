@@ -3,19 +3,19 @@ import { useEffect, useState } from "react"
 import getAPI from '../api/phim'
 import { Link, useParams } from "react-router-dom"
 import { Outlet } from 'react-router-dom';
-import axios from "axios";
+
 
 function Home() {
   const [listrender, setlistrender] = useState([]);
-  const [listrenderDetail, setListrenderDetail] = useState([]);
-  const [namePhim, setNamePhim] = useState([]);
-  const { id } = useParams();
   const [listFilmDetail, setListFilmDetail] = useState([]);
   
 
   useEffect(() => {
-    const getPhim = async () => {
+    const getPhimFC = async () => {
       try {
+        const getPage = await getAPI.getPagePhim();
+        setlistrender(getPage.data.pagination)
+
         const response = await getAPI.getPhim();
         const listFilm = response.data.items;
         const listDetail = await Promise.all(listFilm.map((itemFilm) => {
@@ -26,15 +26,15 @@ function Home() {
         alert (err)
       }
     };
-    getPhim();
+    getPhimFC();
   }, []);
 
-  console.log(listFilmDetail);
 
+  console.log(listrender);
 
   const renderRestaurant = () => {
     if (listFilmDetail) {
-      return listFilmDetail.map((item, index) => {
+      return listFilmDetail.map((item, index) => {         
         return (         
           <div 
             key={index}
@@ -54,32 +54,34 @@ function Home() {
                         <span className="button-49">Xem Phim</span> 
                     </div> 
                   </div>
-                  <p className="text-right"><a href="#">See all</a></p>
                 </div>
+                {(item.data.movie.episode_current) === "Trailer" ? <p className="text-right hot_detail error mx-auto">Sắp ra mắt</p>: null}
                 
                 
-                  <div class="tbl-header">
-                    <table cellpadding="0" cellspacing="0" border="0">
+                  <div className="tbl-header">
+                    <table cellPadding="0" cellSpacing="0" border="0">
                       <thead>
                         <tr>
                           <th>Thể Loại</th>
                           <th>Diễn viên</th>
                           <th>Tình trạng</th>
                           <th>Quốc gia</th>
-                          <th>Ngày ra mắt</th>
                         </tr>
                       </thead>
                     </table>
                   </div>
-                  <div class="tbl-content">
-                    <table cellpadding="0" cellspacing="0" border="0">
+                  <div className="tbl-content">
+                    <table cellPadding="0" cellSpacing="0" border="0">
                       <tbody>
                         <tr>
-                          <td>{item.data.movie.category?.name}</td>
-                          <td>{item.data.movie.actor}</td>
+                          {item.data.movie.type === "hoathinh" ? <td>Hoạt Hình</td> : null}
+                          {item.data.movie.type === "series" ? <td>Phim Bộ</td> : null}
+                          {item.data.movie.type === "tvshows" ? <td>TV Shows</td> : null}
+                          {item.data.movie.type === "single" ? <td>Phim Lẻ</td> : null}
+
+                          <td className='max_text'>{item.data.movie.actor}</td>
                           <td>{item.data.movie.episode_current}</td>
-                          <td>{item.data.movie.country?.name}</td>
-                          <td>{item.data.movie.modified.time}</td>
+                          <td>{item.data.movie.country[0]?.name}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -100,16 +102,6 @@ function Home() {
         <div id="content">
           {renderRestaurant()}
         </div>
-        <div className="pagination">
-          <a href="#">&laquo;</a>
-          <a className="active" href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">&raquo;</a>
-      </div>
     </div>
   )
 }

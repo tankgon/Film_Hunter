@@ -5,7 +5,7 @@ function New() {
     <div>
            <div id="news">
         <div className="head">
-          {listrender ? <h3>{listrender?.pagination?.totalPages}</h3> : alert("thanh")}     
+          <h3>abc</h3>  
           <p className="text-right"><a href="#">See all</a></p>
         </div>
         <div className="content">
