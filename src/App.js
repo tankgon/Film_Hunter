@@ -12,6 +12,7 @@ import Page from './layout/Page'
 import New from './layout/New'
 //component
 import Bug from './component/Bug';
+import DetailFilm from './component/DetailFilm';
 //frameword
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -21,7 +22,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout/>}>
         <Route path='' element={<Home/>}/>
-        <Route path=':id' element={<Page/>}/>
+        <Route path=':id' element={<DetailFilm/>}/>
 
         <Route path='/*' element={<Bug/>}></Route>
       </Route>

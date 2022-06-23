@@ -285,6 +285,7 @@ h1#logo a {
 	padding-top:8px;
 	display: flex;
 	justify-content: space-between;
+	text-decoration: none;
 }
 .rating p {
 	float:left;
@@ -864,4 +865,46 @@ text-decoration: underline;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	height: 18px;
+}
+.player-text {
+	background: #0c0d0d;
+	padding: 1.8em 1em;
+}
+p.fexi_header {
+	text-transform: uppercase;
+	font-size: 1.3em;
+	color: #02a388;
+	font-weight: bold;
+	padding-bottom: 1em;
+}
+p.fexi_header_para {
+	margin-top: .8em;
+	color: #9ea2a2;
+	line-height: 1.5em;
+	position: relative;
+}
+
+p.fexi_header_para label {
+	position: absolute;
+	top: 0%;
+	left: 21%;
+	font-style: normal;
+}
+
+p.fexi_header_para span {
+	color: #02a388;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	width: 25%;
+}
+
+p.fexi_header_para a {
+	color: #9ea2a2;
+}
+.conjuring_w3 {
+	height: 30px;
+}
+p.fexi_header_para1 a i {
+	color: #fff !important;
 }

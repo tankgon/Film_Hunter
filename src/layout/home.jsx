@@ -1,13 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 import getAPI from '../api/phim'
-import { Link, useParams } from "react-router-dom"
-import { Outlet } from 'react-router-dom';
+import { Link, useParams,  Outlet } from "react-router-dom"
 
 
 function Home() {
   const [listrender, setlistrender] = useState([]);
   const [listFilmDetail, setListFilmDetail] = useState([]);
+
   
 
   useEffect(() => {
@@ -30,9 +30,23 @@ function Home() {
   }, []);
 
 
-  console.log(listrender);
+  console.log(listFilmDetail); 
 
-  const renderRestaurant = () => {
+  const renderPage = () => {
+    if (listFilmDetail) {
+      return listFilmDetail.map((item, index) => {         
+        return (         
+            <div key={index}>
+              <a // className="active" 
+              href="/1">1</a>
+            </div>
+          );
+        });
+      }
+  };
+
+
+  const renderFilm = () => {
     if (listFilmDetail) {
       return listFilmDetail.map((item, index) => {         
         return (         
@@ -50,9 +64,11 @@ function Home() {
                   <div>
                     <div className='Item_name'>{item.data.movie.name}</div>
                     <div>({item.data.movie.origin_name})</div> 
-                    <div className="rating">
+                    <Link 
+                    to={`${item.data.movie.slug}`}
+                    className="rating">
                         <span className="button-49">Xem Phim</span> 
-                    </div> 
+                    </Link> 
                   </div>
                 </div>
                 {(item.data.movie.episode_current) === "Trailer" ? <p className="text-right hot_detail error mx-auto">Sắp ra mắt</p>: null}
@@ -94,14 +110,26 @@ function Home() {
           );
         });
       }
-    };
+  };
 
     
-    return (
-      <div id="main">
-        <div id="content">
-          {renderRestaurant()}
+  return (
+    <div id="main">
+      <div id="content">
+        {renderFilm()}
+        <div className="pagination">
+          <div>Tổng Phim: {listrender?.totalItems}</div>
+          <div>Tổng Trang: {listrender?.totalPages}</div>
         </div>
+
+      </div>
+      <div className="box">
+        <div className="pagination">
+          <a href="#">&laquo;</a>
+          {/* {renderPage()} */}
+          <a href="#">&raquo;</a>
+        </div>
+      </div>
     </div>
   )
 }
