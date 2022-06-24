@@ -239,6 +239,23 @@ h1#logo a {
 	float:left;
 	padding-right:12px;
 }
+.movie-image_detail {
+	float:left;
+	height:320px;
+	position: relative;
+}
+.movie-image_detail img {
+	width:auto;
+	height:100%;
+	margin-right: 4px;
+}
+
+.movie-image_detail_down{
+	position: relative;
+	background-color: #00E6F6;
+	margin-right: 4px;
+	border-radius: 4px;
+}
 .movie-image {
 	float:left;
 	height:120px;
@@ -869,29 +886,31 @@ text-decoration: underline;
 .player-text {
 	background: #0c0d0d;
 	padding: 1.8em 1em;
+	margin-left: 4px;
+	width: 100%;
 }
-p.fexi_header {
+div.fexi_header {
 	text-transform: uppercase;
-	font-size: 1.3em;
+	font-size: 1.8rem;
 	color: #02a388;
 	font-weight: bold;
 	padding-bottom: 1em;
 }
-p.fexi_header_para {
+div.fexi_header_para {
 	margin-top: .8em;
 	color: #9ea2a2;
 	line-height: 1.5em;
 	position: relative;
 }
 
-p.fexi_header_para label {
+div.fexi_header_para label {
 	position: absolute;
 	top: 0%;
 	left: 21%;
 	font-style: normal;
 }
 
-p.fexi_header_para span {
+div.fexi_header_para span {
 	color: #02a388;
 	font-size: 14px;
 	font-weight: bold;
@@ -899,7 +918,7 @@ p.fexi_header_para span {
 	width: 25%;
 }
 
-p.fexi_header_para a {
+div.fexi_header_para a {
 	color: #9ea2a2;
 }
 .conjuring_w3 {
@@ -907,4 +926,10 @@ p.fexi_header_para a {
 }
 p.fexi_header_para1 a i {
 	color: #fff !important;
+}
+
+.video-grid-single-page-agileits{
+	margin: 20px 0px;
+	display: flex;
+	justify-content: center;
 }

@@ -21,7 +21,7 @@ function Home() {
         const listDetail = await Promise.all(listFilm.map((itemFilm) => {
           return getAPI.getDetailPhim(itemFilm.slug);
         }));
-        setListFilmDetail(listDetail);
+        setListFilmDetail(listDetail)
       }catch (err){
         alert (err)
       }
@@ -30,7 +30,7 @@ function Home() {
   }, []);
 
 
-  console.log(listFilmDetail); 
+  console.log(listFilmDetail)
 
   const renderPage = () => {
     if (listFilmDetail) {
@@ -97,7 +97,16 @@ function Home() {
 
                           <td className='max_text'>{item.data.movie.actor}</td>
                           <td>{item.data.movie.episode_current}</td>
-                          <td>{item.data.movie.country[0]?.name}</td>
+
+                          <td>
+                            {item.data.movie.country[0].name}
+                            {item.data.movie.country.length != null 
+                            ? item.data.movie.country.map((item1,index1) =>{
+                                <div key={index1}>                           
+                                    {item1.name},
+                                </div>
+                            }) :null}
+                          </td>
                         </tr>
                       </tbody>
                     </table>

@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function header() {
   return (
     <div id="header">
-        <h1 id="logo"><a href="#">MovieGonT</a></h1>
+        <h1 id="logo"><Link to={" "} href="#">MovieGonT</Link></h1>
         <div className="social"> <span>FOLLOW US ON:</span>
         <ul>
             <li><a className="you" href="#">twitter</a></li>

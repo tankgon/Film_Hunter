@@ -19,51 +19,67 @@ function DetailFilm() {
             }
         };
         getDetailFilmFC();
-    })
+    },[id])
+
+
     // console.log(listrender);
-    console.log(listrenderTap[0]?.server_data[0]?.link_embed);
+    console.log(listrender);
 
 
     
     return (
         <div className="col-md-5 video_agile_player second-top">
             <div className="video-grid-single-page-agileits">
-                <video 
+                {/* <video 
                 data-video="BXEZFd0RT5Y" 
-                // src={listrenderTap[0]?.server_data[0]?.link_embed}
+                src="https://kd.hd-bophim.com/share/669ea75f1504b326e37d132fec021ee8"
                 id="video3" 
                 preload="auto" 
                 playsInline="playsinline" 
                 tabIndex="-1" 
                 autoPlay="autoplay"  
                 controls> 
-                    {listrenderTap[0]?.server_data[0]?.link_embed ? <source src={listrenderTap[0]?.server_data[0]?.link_embed}></source> : null}
-                    {/* <img src="images/44.jpg" alt="" className="img-responsive" />  */}
-                </video>
+                    <source src="https://kd.hd-bophim.com/share/669ea75f1504b326e37d132fec021ee8"></source>
+                    {/* {listrenderTap[0]?.server_data[0]?.link_embed ? <source src={listrenderTap[0]?.server_data[0]?.link_embed}></source> : null} */}
+                    {/* <img src={listrender.thumb_url} alt="" className="img-responsive" /> 
+                {/* </video> */} 
+                <div className="movie-image_detail"> 
+                    <a href="#"><img src={listrender.thumb_url} alt="" /></a>
+                    <div className='flex'>
+                        <div className='movie-image_detail_down'>Xem Phim</div> 
+                        <div className='movie-image_detail_down'>xem Trailer</div> 
+                    </div>
+                </div>
+
+                <div className="player-text two">
+                    <div className="fexi_header">{listrender.name} </div>
+                    <div className="fexi_header_para"><span >Tập Phim<label>:</label></span>{listrender.episode_current}</div>
+                    <div className="fexi_header_para"><span >Thời Lượng<label>:</label></span>{listrender.time == "" ? "Thời Lượng Đang Cập Nhật" : listrender.time}</div>
+                    <div className="fexi_header_para"><span >Thể Loại<label>:</label></span>
+
+
+                    {listrender.category  ? listrender.category.length > 0 ? (
+                        listrender.category.map((item, index) => (
+                            <div key={index}>                           
+                                {item.name},
+                            </div>
+                        ))
+                    ) : null: null}
+
+                    <div className="fexi_header_para"><span >Diễn Viên<label>:</label></span>{listrender?.actor} </div>
+                    <div className="fexi_header_para"><span >Quốc Gia<label>:</label></span>
+                        {listrender.country  ? listrender.country.length > 0 ? (
+                            listrender.country.map((item, index) => (
+                                <div key={index}>                           
+                                    {item.name},
+                                </div>
+                            ))
+                        ) : null: null}
+                    </div>
+                    </div>
+                </div>
                 
             </div>
-
-            <div className="player-text two">
-                <p className="fexi_header">Storks </p>
-                <p className="fexi_header_para"><span className="conjuring_w3">Story Line<label>:</label></span>Starring: Andy Samberg, Jennifer Aniston, Ty Burrell
-                Storks Official Trailer 3 (2016) - Andy Samberg Movie  the company's top delivery stork, lands in hot water when the Baby Factory produces an adorable....... </p>
-                <p className="fexi_header_para"><span >Release On<label>:</label></span>Aug 1, 2016 </p>
-                
-                <p className="fexi_header_para">
-                    <span>Genres<label>:</label> </span>
-                    <a href="genre.html">Drama</a> | 
-                    <a href="genre.html">Adventure</a> | 
-                    <a href="genre.html">Family</a>								
-                </p>
-                <p className="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
-                    <a href="#"><i className="fa fa-star" aria-hidden="true"></i></a>
-                    <a href="#"><i className="fa fa-star" aria-hidden="true"></i></a>
-                    <a href="#"><i className="fa fa-star-half-o" aria-hidden="true"></i></a>
-                    <a href="#"><i className="fa fa-star-o" aria-hidden="true"></i></a>
-                    <a href="#"><i className="fa fa-star-o" aria-hidden="true"></i></a>
-                </p>
-            </div>
-
         </div>
     )
 };
