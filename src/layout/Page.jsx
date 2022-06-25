@@ -30,9 +30,9 @@ function Home() {
       <div className="box">
         <div className="pagination">
           <a href="#">&laquo;</a>
-          <Link to={"1"} href="">1</Link>
-          <Link to={"2"} href="">2</Link>
-          <Link to={"3"} href="">3</Link>
+          <Link to={"/1"} href="">1</Link>
+          <Link to={"/2"} href="">2</Link>
+          <Link to={"/3"} href="">3</Link>
           <a href="#">&raquo;</a>
         </div>
       </div>

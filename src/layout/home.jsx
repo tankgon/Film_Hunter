@@ -52,7 +52,7 @@ function Home() {
                     <div className='Item_name'>{item.data.movie.name}</div>
                     <div>({item.data.movie.origin_name})</div> 
                     <Link 
-                    to={`${item.data.movie.slug}`}
+                    to={`/Film/${item.data.movie.slug}`}
                     className="rating">
                         <span className="button-49">Xem Phim</span> 
                     </Link> 
