@@ -5,18 +5,13 @@ import { Link, useParams,  Outlet } from "react-router-dom"
 
 
 function Home() {
-  const [listrender, setlistrender] = useState([]);
   const [listFilmDetail, setListFilmDetail] = useState([]);
-
-  
+  const { id } = useParams();
 
   useEffect(() => {
     const getPhimFC = async () => {
       try {
-        const getPage = await getAPI.getPagePhim();
-        setlistrender(getPage.data.pagination)
-
-        const response = await getAPI.getPhim();
+        const response = await getAPI.getPagePhim(`${id}`);
         const listFilm = response.data.items;
         const listDetail = await Promise.all(listFilm.map((itemFilm) => {
           return getAPI.getDetailPhim(itemFilm.slug);
@@ -113,11 +108,6 @@ function Home() {
     <div id="main">
       <div id="content">
         {renderFilm()}
-        <div className="pagination">
-          <div>Tổng Phim: {listrender?.totalItems}</div>
-          <div>Tổng Trang: {listrender?.totalPages}</div>
-        </div>
-
       </div>
       <Outlet/>
     </div>

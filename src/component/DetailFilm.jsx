@@ -2,6 +2,7 @@ import React from 'react'
 import getAPI from '../api/phim'
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react"
+import { Slide } from "react-slideshow-image";
 
 function DetailFilm() {
     const { id } = useParams();
@@ -21,33 +22,45 @@ function DetailFilm() {
         getDetailFilmFC();
     },[id])
 
+    const arrFilm = () => {
+        if(listrenderTap){
+            return listrenderTap.map((item) => {
+                return(
+                    
+                    item.server_data.map((item,index)=>{
+                        return(
+                            
+                            <button className="box_link">
+                                <a key={index}  href={item.link_embed}>
+                                tập: {item.name}
+                                </a>
+                            </button>
+                                
+                        )                    
+                    })
+                )
+            })
+        }
+    }
 
+
+
+    console.log(listrenderTap);
     // console.log(listrender);
-    console.log(listrender);
 
 
     
     return (
         <div className="col-md-5 video_agile_player second-top">
             <div className="video-grid-single-page-agileits">
-                {/* <video 
-                data-video="BXEZFd0RT5Y" 
-                src="https://kd.hd-bophim.com/share/669ea75f1504b326e37d132fec021ee8"
-                id="video3" 
-                preload="auto" 
-                playsInline="playsinline" 
-                tabIndex="-1" 
-                autoPlay="autoplay"  
-                controls> 
-                    <source src="https://kd.hd-bophim.com/share/669ea75f1504b326e37d132fec021ee8"></source>
+
                     {/* {listrenderTap[0]?.server_data[0]?.link_embed ? <source src={listrenderTap[0]?.server_data[0]?.link_embed}></source> : null} */}
-                    {/* <img src={listrender.thumb_url} alt="" className="img-responsive" /> 
-                {/* </video> */} 
+
                 <div className="movie-image_detail"> 
                     <a href="#"><img src={listrender.thumb_url} alt="" /></a>
                     <div className='flex'>
                         <div className='movie-image_detail_down'>Xem Phim</div> 
-                        <div className='movie-image_detail_down'>xem Trailer</div> 
+                        <div className='movie-image_detail_down'>Xem Trailer</div>
                     </div>
                 </div>
 
@@ -80,6 +93,15 @@ function DetailFilm() {
                 </div>
                 
             </div>
+
+
+            {/* <img src={listrender.thumb_url} alt="" className="img-responsive" />  */}
+
+            <div className="arrFilm">
+                {arrFilm()}
+            </div>
+
+
         </div>
     )
 };

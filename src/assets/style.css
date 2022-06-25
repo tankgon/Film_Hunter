@@ -14,8 +14,9 @@ a {
 	color:#e7b038;
 	text-decoration:underline;
 	cursor:pointer;
+	text-decoration:none;
 }
-a:hover {
+a :hover {
 	text-decoration:none;
 }
 a img {
@@ -255,6 +256,8 @@ h1#logo a {
 	background-color: #00E6F6;
 	margin-right: 4px;
 	border-radius: 4px;
+	padding: 8px 24px;
+	cursor: pointer;
 }
 .movie-image {
 	float:left;
@@ -929,7 +932,24 @@ p.fexi_header_para1 a i {
 }
 
 .video-grid-single-page-agileits{
-	margin: 20px 0px;
+	margin: 40px 0px;
 	display: flex;
 	justify-content: center;
+	color: black;
+	font-weight: 700;
+}
+.arrFilm{
+	position: relative;
+	padding: 20px 0;
+	background-color: #00E6F6;
+
+}
+.box_link{
+	border: 1px solid #00E6F6;
+	padding: 10px 10px;
+	margin: 4px 8px;
+	
+}
+.slide{
+	width: 100%;
 }
