@@ -8,8 +8,6 @@ function Home() {
   const [listrender, setlistrender] = useState([]);
   const [listFilmDetail, setListFilmDetail] = useState([]);
 
-  
-
   useEffect(() => {
     const getPhimFC = async () => {
       try {

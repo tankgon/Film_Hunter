@@ -22,31 +22,9 @@ function DetailFilm() {
         getDetailFilmFC();
     },[id])
 
-    const arrFilm = () => {
-        if(listrenderTap){
-            return listrenderTap.map((item) => {
-                return(
-                    
-                    item.server_data.map((item,index)=>{
-                        return(
-                            
-                            <button className="box_link">
-                                <a key={index}  href={item.link_embed}>
-                                tập: {item.name}
-                                </a>
-                            </button>
-                                
-                        )                    
-                    })
-                )
-            })
-        }
-    }
-
-
 
     console.log(listrenderTap);
-    // console.log(listrender);
+    console.log(listrender);
 
 
     
@@ -59,7 +37,8 @@ function DetailFilm() {
                 <div className="movie-image_detail"> 
                     <a href="#"><img src={listrender.thumb_url} alt="" /></a>
                     <div className='flex'>
-                        <div className='movie-image_detail_down'>Xem Phim</div> 
+                        <Link to={`/chap/${id}`} className='movie-image_detail_down'>Xem Phim</Link> 
+                        
                         <div className='movie-image_detail_down'>Xem Trailer</div>
                     </div>
                 </div>
@@ -96,11 +75,6 @@ function DetailFilm() {
 
 
             {/* <img src={listrender.thumb_url} alt="" className="img-responsive" />  */}
-
-            <div className="arrFilm">
-                {arrFilm()}
-            </div>
-
 
         </div>
     )

@@ -11,6 +11,7 @@ import Home from './layout/Home'
 import Page from './layout/Page'
 import New from './layout/New'
 import FilmPage from './layout/FilmPage'
+import Chap from './layout/Chap'
 //component
 import Bug from './component/Bug';
 import DetailFilm from './component/DetailFilm';
@@ -27,11 +28,15 @@ function App() {
           <Route path='' element={<Page/>}/>
         </Route>
 
-        <Route path='/:id' element={<FilmPage/>}>
-          <Route path='' element={<Page/>}/>
-        </Route>
+        <Route path='/:id' element={<FilmPage/>}></Route>
 
         <Route path='/Film/:id' element={<DetailFilm/>}/>
+
+        <Route path='/chap/:id' element={<Chap/>}>
+          <Route path='' element={<Watching/>}/>
+        </Route>
+        
+        <Route path='/watching/:id' element={<Chap/>}/>
 
         
 

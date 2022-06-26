@@ -945,10 +945,12 @@ p.fexi_header_para1 a i {
 
 }
 .box_link{
+	padding: 12px 0px;
 	border: 1px solid #00E6F6;
-	padding: 10px 10px;
 	margin: 4px 8px;
-	
+}
+.box_link a{
+	padding: 14px 12px;
 }
 .slide{
 	width: 100%;
