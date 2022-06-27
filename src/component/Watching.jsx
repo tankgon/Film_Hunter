@@ -24,7 +24,7 @@ function Watching() {
     <div>
       {listrenderTap ? listrenderTap.map((item,index)=>{
         return(                      
-          <iframe key={index} src={item.server_data[0].link_embed} width="100%" height="500px" controls></iframe>                                              
+          <iframe key={index} src={item.server_data[0].link_embed} width="100%" height="500px" controls>a</iframe>                                              
       )})
       :null}
     </div>
