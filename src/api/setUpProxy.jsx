@@ -8,7 +8,7 @@ module.exports = app => {
         })
     )
     app.use(
-        createProxyMiddleware('/phim/ngoi-truong-xac-song',{
+        createProxyMiddleware('/phim/cuoc-chien-asterisk',{
             target: 'https://ophim1.com',
             changeOrigin: true,
         })
