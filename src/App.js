@@ -12,12 +12,14 @@ import Page from "./layout/Page";
 import New from "./layout/New";
 import FilmPage from "./layout/FilmPage";
 import Chap from "./layout/Chap";
+import Search from "./layout/Search";
 //component
 import Bug from "./component/Bug";
 import DetailFilm from "./component/DetailFilm";
 import Watching from "./component/Watching";
 //frameword
 import { Routes, Route, Navigate } from "react-router-dom";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path="" element={<Home />}>
           <Route path="" element={<Page />} />
         </Route>
+        <Route path="/search/:slug" element={<Search />} />
 
         <Route path="/:id" element={<FilmPage />}>
           <Route path="" element={<Page />} />

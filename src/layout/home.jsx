@@ -16,6 +16,7 @@ function Home() {
 
         const response = await getAPI.getPhim();
         const listFilm = response.data.items;
+        
         const listDetail = await Promise.all(listFilm.map((itemFilm) => {
           return getAPI.getDetailPhim(itemFilm.slug);
         }));
