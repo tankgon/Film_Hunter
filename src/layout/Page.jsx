@@ -19,7 +19,7 @@ function Home() {
     getPhim();
   }, []);
 
-  console.log(  listrender)
+  // console.log(  listrender)
 
   const getPage = () => {
 
