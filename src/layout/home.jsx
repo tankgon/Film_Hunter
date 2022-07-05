@@ -1,32 +1,36 @@
-import React from 'react'
-import { useEffect, useState } from "react"
-import getAPI from '../api/phim'
-import { Link, useParams,  Outlet } from "react-router-dom"
+import React from "react";
+import { useEffect, useState } from "react";
+import getAPI from "../api/phim";
+import { Link, useParams, Outlet } from "react-router-dom";
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 function Home() {
-  const [listrender, setlistrender] = useState([]);
   const [listFilmDetail, setListFilmDetail] = useState([]);
-
+  const [listrender, setlistrender] = useState([]);
+  const [page, setPage] = useState(1);
+  console.log(page, listFilmDetail);
   useEffect(() => {
     const getPhimFC = async () => {
       try {
         const getPage = await getAPI.getPagePhim();
         setlistrender(getPage.data.pagination)
 
-        const response = await getAPI.getPhim();
+        const response = await getAPI.getPagePhim(`${page}`);
         const listFilm = response.data.items;
-        
-        const listDetail = await Promise.all(listFilm.map((itemFilm) => {
-          return getAPI.getDetailPhim(itemFilm.slug);
-        }));
-        setListFilmDetail(listDetail)
-      }catch (err){
-        alert (err)
+        const listDetail = await Promise.all(
+          listFilm.map((itemFilm) => {
+            return getAPI.getDetailPhim(itemFilm.slug);
+          })
+        );
+        setListFilmDetail(listDetail);
+      } catch (err) {
+        alert(err);
       }
     };
     getPhimFC();
-  }, []);
+  }, [page]);
 
 
   // console.log(listFilmDetail)
@@ -113,12 +117,23 @@ function Home() {
       <div id="content">
         {renderFilm()}
         <div className="pagination">
-          <div>Tổng Phim: {listrender?.totalItems}</div>
-          <div>Tổng Trang: {listrender?.totalPages}</div>
+          {/* <div>Tổng Phim: {listrender?.totalItems}</div>
+          <div>Tổng Trang: {listrender?.totalPages}</div> */}
+            <Stack spacing={2}>
+              <Pagination 
+              count={listrender?.totalPages} 
+   
+              color="primary" 
+              // showFirstButton
+              // showLastButton
+              defaultPage={page}
+              onChange={(event,value) => {setPage(value)}}
+              />
+            </Stack>
         </div>
 
       </div>
-      <Outlet/>
+      {/* <Outlet/> */}
     </div>
   )
 }

@@ -535,8 +535,9 @@ h1#logo a {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	margin: 20px 0px;
-  }
+	padding: 20px 0px;
+	background-color: #fff;
+}
   
 .pagination a {
 color: black;
