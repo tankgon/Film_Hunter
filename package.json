@@ -5,6 +5,10 @@
   "homepage": "http://localhost:3000",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.8.7",
+    "@mui/styled-engine-sc": "^5.8.0",
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -17,13 +21,16 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slideshow-image": "^3.7.5",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
