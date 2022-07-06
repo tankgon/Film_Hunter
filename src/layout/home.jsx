@@ -14,7 +14,7 @@ function Home() {
   useEffect(() => {
     const getPhimFC = async () => {
       try {
-        const getPage = await getAPI.getPagePhim();
+        const getPage = await getAPI.getPagePhim(); 
         setlistrender(getPage.data.pagination)
 
         const response = await getAPI.getPagePhim(`${page}`);
