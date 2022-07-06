@@ -23,7 +23,7 @@ function App() {
   return (
     <Routes>
       <Route path="/Film_Hunter" element={<Layout />}>
-        <Route path="" element={<Home />}/>
+        <Route path="/" element={<Home />}/>
         
         <Route path="/search/:slug" element={<Search />} />
 
