@@ -30,7 +30,7 @@ function Watching() {
                     item.server_data.map((item,index)=>{
                         return(                          
                             <button key={index} className="box_link">
-                                <Link to={""}  >tập: {item.name}</Link>
+                                <Link to={`/chap/${id}/${item.name}`} >tập: {item.name}</Link>
                             </button>                         
                         )                    
                     })
@@ -50,3 +50,5 @@ function Watching() {
 }
 
 export default Watching
+
+
