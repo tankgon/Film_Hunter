@@ -23,13 +23,13 @@ function App() {
   return (
     <Routes>
       <Route path="" element={<Layout />}>
-        <Route path="" element={<Home />}/>   
+        <Route path="" element={<Home />}/>
         <Route path="/search/:slug" element={<Search />} />
         <Route path="/Film/:id" element={<DetailFilm />} />
         <Route path="/chap/:id" element={<Chap />}>
           <Route path="/chap/:id/:tap" element={<Watching />} />
         </Route>
-        <Route path="/*" element={<Bug />}></Route>
+        {/* <Route path="/*" element={<Bug />}></Route> */}
       </Route>
     </Routes>
   );
