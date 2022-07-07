@@ -39,7 +39,7 @@ function App() {
 
         {/* <Route path='/watching/:id' element={<Chap/>}/> */}
 
-        {/* <Route path="/*" element={<Bug />}></Route> */}
+        <Route path="/*" element={<Bug />}></Route>
       </Route>
     </Routes>
   );
