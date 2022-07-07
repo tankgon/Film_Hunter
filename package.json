@@ -1,8 +1,8 @@
 {
+  "homepage": "https://tankgon.github.io/Film_Hunter/",
   "name": "redux-appt3h",
   "version": "0.1.0",
   "proxy": "https://ophim1.com",
-  "homepage": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
