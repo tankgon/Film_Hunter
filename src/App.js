@@ -24,22 +24,12 @@ function App() {
     <Routes>
       <Route path="" element={<Layout />}>
         <Route path="" element={<Home />}/>
-        
         <Route path="/search/:slug" element={<Search />} />
-
-
-
         <Route path="/Film/:id" element={<DetailFilm />} />
-
         <Route path="/chap/:id" element={<Chap />}>
           <Route path="/chap/:id/:tap" element={<Watching />} />
         </Route>
-
-        {/* High Order Component */}
-
-        {/* <Route path='/watching/:id' element={<Chap/>}/> */}
-
-        <Route path="/*" element={<Bug />}></Route>
+        <Route path="/*" element={<Home />}></Route>
       </Route>
     </Routes>
   );

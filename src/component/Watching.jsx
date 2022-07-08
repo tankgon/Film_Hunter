@@ -32,8 +32,11 @@ function Watching() {
         width="100%"
         height="500px"
         controls
-        title={ep.filename}
+        frameborder="0"
+        allowfullscreen
       ></iframe>
+    {/* <iframe src="https://aa.nguonphimmoi.com/share/c74d97b01eae257e44aa9d5bade97baf" width="30%" height="300px" controls allowfullscreen> </iframe> */}
+
     </div>
   );
 }

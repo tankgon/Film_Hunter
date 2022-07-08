@@ -26,8 +26,19 @@ function Home() {
         );
         setListFilmDetail(listDetail);
       } catch (err) {
-        alert(err);
-      }
+        const getPage = await getAPI.getPagePhim(); 
+        setlistrender(getPage.data.pagination)
+
+        const response = await getAPI.getPagePhim(`${page + 1}`);
+        const listFilm = response.data.items;
+        const listDetail = await Promise.all(
+          listFilm.map((itemFilm) => {
+            return getAPI.getDetailPhim(itemFilm.slug);
+          })
+        );
+        setListFilmDetail(listDetail);
+        // alert("thanh")
+      }        
     };
     getPhimFC();
   }, [page]);
