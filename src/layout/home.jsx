@@ -37,7 +37,8 @@ function Home() {
           })
         );
         setListFilmDetail(listDetail);
-      }
+        // alert("thanh")
+      }        
     };
     getPhimFC();
   }, [page]);
