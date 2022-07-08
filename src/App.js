@@ -29,7 +29,7 @@ function App() {
         <Route path="/chap/:id" element={<Chap />}>
           <Route path="/chap/:id/:tap" element={<Watching />} />
         </Route>
-        {/* <Route path="/*" element={<Bug />}></Route> */}
+        <Route path="/*" element={<Home />}></Route>
       </Route>
     </Routes>
   );
