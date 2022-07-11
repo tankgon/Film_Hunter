@@ -15,6 +15,8 @@ import Search from "./layout/Search";
 import Bug from "./component/Bug";
 import DetailFilm from "./component/DetailFilm";
 import Watching from "./component/Watching";
+import Comingsoon from "./component/Comingsoon";
+
 //frameword
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/chap/:id/:tap" element={<Watching />} />
         </Route>
         <Route path="/*" element={<Home />}></Route>
+
+        <Route path="/comingsoon" element={<Comingsoon />}></Route>
       </Route>
     </Routes>
   );
