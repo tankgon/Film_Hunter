@@ -41,15 +41,13 @@ function Search() {
             const a = await getAPI.getDetailPhim(`${thanh(slug)}`);
             setlistrender(a.data.movie);
         } catch (error) {
-            alert(error);
+            alert("Khong tim thay phim");
         }
     };
     getDetailFilmFC();
     console.log(thanh(slug));
 
   },[id])
-
-  console.log(id);
   
   const thanh = (slug) => {
     slug = slug.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
@@ -81,57 +79,57 @@ function Search() {
 }
 
  
-    // alert(listrender);
+    // alert();
     
     return (
-        <div className="col-md-5 video_agile_player second-top">
-            <div className="video-grid-single-page-agileits">
+        (listrender ? <div className="col-md-5 video_agile_player second-top">
+        <div className="video-grid-single-page-agileits">
 
-                    {/* {listrenderTap[0]?.server_data[0]?.link_embed ? <source src={listrenderTap[0]?.server_data[0]?.link_embed}></source> : null} */}
+                {/* {listrenderTap[0]?.server_data[0]?.link_embed ? <source src={listrenderTap[0]?.server_data[0]?.link_embed}></source> : null} */}
 
-                <div className="movie-image_detail"> 
-                    <a href="#"><img src={listrender.thumb_url} alt="" /></a>
-                    <div className='flex'>
-                        <Link to={`/chap/${thanh(slug)}`} className='movie-image_detail_down'>Xem Phim</Link> 
-                        
-                        <div className='movie-image_detail_down'>Xem Trailer</div>
-                    </div>
+            <div className="movie-image_detail"> 
+                <a href="#"><img src={listrender.thumb_url} alt="" /></a>
+                <div className='flex'>
+                    <Link to={`/chap/${thanh(slug)}`} className='movie-image_detail_down'>Xem Phim</Link> 
+                    
+                    <div className='movie-image_detail_down'>Xem Trailer</div>
                 </div>
+            </div>
 
-                <div className="player-text two">
-                    <div className="fexi_header">{listrender.name} </div>
-                    <div className="fexi_header_para"><span >Tập Phim<label>:</label></span>{listrender.episode_current}</div>
-                    <div className="fexi_header_para"><span >Thời Lượng<label>:</label></span>{listrender.time == "" ? "Thời Lượng Đang Cập Nhật" : listrender.time}</div>
-                    <div className="fexi_header_para"><span >Thể Loại<label>:</label></span>
+            <div className="player-text two">
+                <div className="fexi_header">{listrender.name} </div>
+                <div className="fexi_header_para"><span >Tập Phim<label>:</label></span>{listrender.episode_current}</div>
+                <div className="fexi_header_para"><span >Thời Lượng<label>:</label></span>{listrender.time == "" ? "Thời Lượng Đang Cập Nhật" : listrender.time}</div>
+                <div className="fexi_header_para"><span >Thể Loại<label>:</label></span>
 
 
-                    {listrender.category  ? listrender.category.length > 0 ? (
-                        listrender.category.map((item, index) => (
+                {listrender.category  ? listrender.category.length > 0 ? (
+                    listrender.category.map((item, index) => (
+                        <div key={index}>                           
+                            {item.name},
+                        </div>
+                    ))
+                ) : null: null}
+
+                <div className="fexi_header_para"><span >Diễn Viên<label>:</label></span>{listrender?.actor} </div>
+                <div className="fexi_header_para"><span >Quốc Gia<label>:</label></span>
+                    {listrender.country  ? listrender.country.length > 0 ? (
+                        listrender.country.map((item, index) => (
                             <div key={index}>                           
                                 {item.name},
                             </div>
                         ))
                     ) : null: null}
-
-                    <div className="fexi_header_para"><span >Diễn Viên<label>:</label></span>{listrender?.actor} </div>
-                    <div className="fexi_header_para"><span >Quốc Gia<label>:</label></span>
-                        {listrender.country  ? listrender.country.length > 0 ? (
-                            listrender.country.map((item, index) => (
-                                <div key={index}>                           
-                                    {item.name},
-                                </div>
-                            ))
-                        ) : null: null}
-                    </div>
-                    </div>
                 </div>
-                
+                </div>
             </div>
-
-
-            {/* <img src={listrender.thumb_url} alt="" className="img-responsive" />  */}
-
+            
         </div>
+
+
+        {/* <img src={listrender.thumb_url} alt="" className="img-responsive" />  */}
+
+    </div> : alert ("thanh"))
     )
 }
 

@@ -48,9 +48,8 @@ function Comingsoon() {
         return listFilmDetail.map((item, index) => { 
           console.log(item.data.movie.status);        
           return (     
-            ((item.data.movie.episode_current) === "Trailer" ? 
-            alert("thanh"): null)    
-            
+            ((item.data.movie.episode_current) === "trailer" ? 
+            alert("thanh"): null)
             );
           });
         }

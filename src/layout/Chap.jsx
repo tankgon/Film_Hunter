@@ -12,7 +12,6 @@ function Watching() {
         const getDetailFilmFC = async () => {
             try {
                 const a = await getAPI.getDetailPhim(`${id}`);
-
                 setlistrenderTap(a.data.episodes);
             } catch (error) {
                 alert(error);

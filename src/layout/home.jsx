@@ -10,6 +10,7 @@ function Home() {
   const [listFilmDetail, setListFilmDetail] = useState([]);
   const [listrender, setlistrender] = useState([]);
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   console.log(page, listFilmDetail);
   useEffect(() => {
     const getPhimFC = async () => {
@@ -25,6 +26,7 @@ function Home() {
           })
         );
         setListFilmDetail(listDetail);
+        setIsLoading(true)
       } catch (err) {
         const getPage = await getAPI.getPagePhim(); 
         setlistrender(getPage.data.pagination)
@@ -37,6 +39,7 @@ function Home() {
           })
         );
         setListFilmDetail(listDetail);
+        setIsLoading(true)
         // alert("thanh")
       }        
     };
@@ -122,10 +125,22 @@ function Home() {
       }
   };
 
+  const show = () => {
+    if(isLoading == false){
+      return(
+        <div class="loader">
+          <div class="loader-wheel"></div>
+          <div class="loader-text"></div>
+        </div>
+      )
+    }
+  }
+
     
   return (
     <div id="main">
       <div id="content">
+        {show()}
         {renderFilm()}
         <div className="pagination">
           {/* <div>Tổng Phim: {listrender?.totalItems}</div>
